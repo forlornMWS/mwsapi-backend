@@ -38,3 +38,17 @@ insert into mws_api.`interface_info` (`name`, `url`, `description`, `requestHead
 insert into mws_api.`interface_info` (`name`, `url`, `description`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('孙子涵', 'www.kimbery-robel.name', '胡天磊', '沈乐驹', '熊鑫磊', 0, '朱烨霖', 18725);
 insert into mws_api.`interface_info` (`name`, `url`, `description`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('江文轩', 'www.rosalia-braun.biz', '林明', '何嘉熙', '段熠彤', 0, '史越泽', 9681754);
 insert into mws_api.`interface_info` (`name`, `url`, `description`, `requestHeader`, `responseHeader`, `status`, `method`, `userId`) values ('侯昊强', 'www.marcellus-swift.net', '秦钰轩', '吕君浩', '姜立轩', 0, '陈梓晨', 694);
+
+-- 用户调用接口关系表
+create table if not exists mws_api.`user_interface_info`
+(
+    `id` bigint not null auto_increment comment '主键' primary key,
+    `userId` bigint not null comment '调用用户Id',
+    `interfaceInfoId` bigint not null comment '接口Id',
+    `totalNum` int default 0 not null comment '总调用次数',
+    `leftNum` int default 0 not null comment '剩余调用次数',
+    `status` int default 0 not null comment '0-正常 ，1-禁用',
+    `createTime` datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    `updateTime` datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    `isDelete` tinyint default 0 not null comment '是否删除(0-未删, 1-已删)'
+) comment '用户调用接口关系表';
