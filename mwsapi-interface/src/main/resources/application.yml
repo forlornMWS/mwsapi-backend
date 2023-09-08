@@ -1,0 +1,8 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+mws:
+  api:
+    access-key: mws
+    secret-key: abcdefgh
