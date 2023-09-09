@@ -3,3 +3,7 @@
 /mwsapi-interface/target/
 /mwsapi-gateway/target/
 /target/
+
+.idea/
+mwsapi-gateway/.idea/
+mwsapi-interface/.idea/
