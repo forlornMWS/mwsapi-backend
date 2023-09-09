@@ -16,6 +16,7 @@ public class UtilController {
 
     @GetMapping("/uuid")
     public String GetUuid(HttpServletRequest request) {
+        System.out.println(request.getHeader("mws"));
         check(request);
         return UUID.randomUUID().toString().replace("-", "");
     }

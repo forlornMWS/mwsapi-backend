@@ -1,4 +1,5 @@
 # Project exclude paths
 /mwsapi-client-sdk/target/
 /mwsapi-interface/target/
+/mwsapi-gateway/target/
 /target/
