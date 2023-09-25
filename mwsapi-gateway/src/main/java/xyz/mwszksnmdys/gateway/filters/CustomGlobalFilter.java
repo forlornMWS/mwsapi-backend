@@ -1,4 +1,4 @@
-package xyz.wmszksnmdys.gateway.filters;
+package xyz.mwszksnmdys.gateway.filters;
 
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;

@@ -16,3 +16,15 @@ logging:
       springframework:
         cloud:
           gateway: trace
+
+dubbo:
+  application:
+    name: consumer
+    qosEnable: true
+    qosPort: 3333
+    qosAcceptForeignIp: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848?namespace=ba05aeb7-cc3d-4343-b088-23270418959b

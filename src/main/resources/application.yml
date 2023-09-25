@@ -37,3 +37,19 @@ mws:
   api:
     access-key: mws
     secret-key: abcdefgh
+
+dubbo:
+  application:
+    name: producer
+    qos:
+      enable: true
+      port: 3333
+      accept:
+        foreign:
+          ip: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848?namespace=ba05aeb7-cc3d-4343-b088-23270418959b
+
