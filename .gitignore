@@ -2,8 +2,10 @@
 /mwsapi-client-sdk/target/
 /mwsapi-interface/target/
 /mwsapi-gateway/target/
+/mwsapi-common/target/
 /target/
 
 .idea/
 mwsapi-gateway/.idea/
 mwsapi-interface/.idea/
+mwsapi-common/.idea/

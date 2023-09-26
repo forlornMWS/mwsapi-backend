@@ -15,7 +15,7 @@ class UserInterfaceInfoServiceImplTest {
 
     @Test
     void invokeCount() {
-        boolean b = userInterfaceInfoService.invokeCount(1L, 1L);
+        boolean b = userInterfaceInfoService.invokeInterfaceCount(1L, 1L);
         Assertions.assertTrue(b);
     }
 }

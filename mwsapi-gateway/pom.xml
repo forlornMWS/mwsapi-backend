@@ -33,7 +33,11 @@
             <artifactId>dubbo</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>xyz.mwszksnmdys</groupId>
+            <artifactId>mwsapi-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>

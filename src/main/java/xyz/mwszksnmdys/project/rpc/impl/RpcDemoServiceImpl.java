@@ -1,7 +1,7 @@
 package xyz.mwszksnmdys.project.rpc.impl;
 
 import org.apache.dubbo.config.annotation.DubboService;
-import xyz.mwszksnmdys.project.rpc.RpcDemoService;
+import xyz.mwszksnmdys.common.service.RpcDemoService;
 
 @DubboService
 public class RpcDemoServiceImpl implements RpcDemoService {

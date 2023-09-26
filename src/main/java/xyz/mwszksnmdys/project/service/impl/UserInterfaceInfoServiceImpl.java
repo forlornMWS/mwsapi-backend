@@ -36,7 +36,7 @@ public class UserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoM
     }
 
     @Override
-    public boolean invokeCount(long interfaceInfoId, long userId) {
+    public boolean invokeInterfaceCount(long interfaceInfoId, long userId) {
         if (interfaceInfoId < 0 || userId < 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

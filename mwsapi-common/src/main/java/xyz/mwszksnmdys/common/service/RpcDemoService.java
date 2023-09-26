@@ -1,4 +1,4 @@
-package xyz.mwszksnmdys.project.rpc;
+package xyz.mwszksnmdys.common.service;
 
 public interface RpcDemoService {
     String sayHello(String name);

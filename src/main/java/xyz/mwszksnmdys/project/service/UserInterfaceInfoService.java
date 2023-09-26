@@ -13,5 +13,5 @@ public interface UserInterfaceInfoService extends IService<UserInterfaceInfo> {
     /**
      * 调用次数统计
      */
-    boolean invokeCount(long interfaceInfoId, long userId);
+    boolean invokeInterfaceCount(long interfaceInfoId, long userId);
 }
