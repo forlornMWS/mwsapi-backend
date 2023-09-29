@@ -255,10 +255,11 @@ public class InterfaceInfoController {
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
         MwsApiClient tempClient = new MwsApiClient(accessKey, secretKey);
-        String result = tempClient.getUuid();
+//        String result = tempClient.getUuid();
         String md5EncryptWithSalt = tempClient.md5EncryptWithSalt(bean);
-        log.info(result);
-        return ResultUtils.success("generated UUID: " + result + " md5withSalt: " + md5EncryptWithSalt);
+//        log.info(result);
+//        return ResultUtils.success("generated UUID: " + result + " md5withSalt: " + md5EncryptWithSalt);
+        return ResultUtils.success(md5EncryptWithSalt);
     }
 
     // endregion

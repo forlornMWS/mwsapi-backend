@@ -1,6 +1,6 @@
 package xyz.mwszksnmdys.project.rpc.impl;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -9,11 +9,19 @@ import xyz.mwszksnmdys.project.common.ErrorCode;
 import xyz.mwszksnmdys.project.exception.BusinessException;
 import xyz.mwszksnmdys.project.mapper.UserInterfaceInfoMapper;
 import xyz.mwszksnmdys.project.model.entity.UserInterfaceInfo;
+import xyz.mwszksnmdys.project.service.UserInterfaceInfoService;
+
+import javax.annotation.Resource;
 
 @DubboService
 @Slf4j
 public class RpcUserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceInfoMapper, UserInterfaceInfo> implements InnerUserInterfaceInfoService {
 
+    @Resource
+    private UserInterfaceInfoMapper userInterfaceInfoMapper;
+
+    @Resource
+    private UserInterfaceInfoService userInterfaceInfoService;
 
     /**
      * 是否还有调用次数
@@ -24,7 +32,17 @@ public class RpcUserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceIn
      */
     @Override
     public boolean hasInvokeNum(long userId, long interfaceInfoId) {
-        return false;
+        if (userId <= 0 || interfaceInfoId <= 0) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+
+        LambdaQueryWrapper<UserInterfaceInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(UserInterfaceInfo::getUserId, userId)
+                .eq(UserInterfaceInfo::getInterfaceInfoId, interfaceInfoId)
+                .gt(UserInterfaceInfo::getLeftNum, 0);
+
+        UserInterfaceInfo userInterfaceInfo = userInterfaceInfoMapper.selectOne(queryWrapper);
+        return userInterfaceInfo != null;
     }
 
     /**
@@ -36,17 +54,6 @@ public class RpcUserInterfaceInfoServiceImpl extends ServiceImpl<UserInterfaceIn
      */
     @Override
     public boolean invokeInterfaceCount(long userId, long interfaceInfoId) {
-        long start = System.currentTimeMillis();
-        if (interfaceInfoId < 0 || userId < 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        LambdaUpdateWrapper<UserInterfaceInfo> wrapper = new LambdaUpdateWrapper<>();
-        wrapper.eq(UserInterfaceInfo::getInterfaceInfoId, interfaceInfoId)
-                .eq(UserInterfaceInfo::getUserId, userId);
-        wrapper.setSql("leftNum = leftNum - 1, totalNum = totalNum + 1");
-        boolean update = this.update(wrapper);
-        long end = System.currentTimeMillis();
-        log.info("调用时间{}", end - start);
-        return update;
+        return userInterfaceInfoService.invokeInterfaceCount(interfaceInfoId, userId);
     }
 }

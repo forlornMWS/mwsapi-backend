@@ -25,6 +25,7 @@ public class UtilController {
 
     @PostMapping("/md5WithSalt")
     public String md5EncryptWithSalt(@RequestBody Md5Form form, HttpServletRequest request) {
+        System.out.println(form);
         return DigestUtils.md5DigestAsHex((form.getSalt() + form.getStr()).getBytes());
     }
 

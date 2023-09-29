@@ -1,7 +1,6 @@
 package xyz.mwszksnmdys.apiclientsdk.client;
 
 import cn.hutool.core.util.RandomUtil;
-import cn.hutool.http.HttpException;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +12,8 @@ import java.util.HashMap;
 
 @Slf4j
 public class MwsApiClient {
+
+    private static final String REQUEST_BASE_URL = "http://localhost:8090";
     public MwsApiClient(String accessKey, String secretKey) {
         this.accessKey = accessKey;
         this.secretKey = secretKey;
@@ -41,7 +42,7 @@ public class MwsApiClient {
     public String getUuid() {
         String result = null;
         try {
-            result = HttpRequest.get("http://localhost:8123/api/util/uuid").addHeaders(getMap(""))
+            result = HttpRequest.get(REQUEST_BASE_URL + "/api/util/uuid").addHeaders(getMap(""))
                     .execute().body();
         } catch (Exception e) {
             throw new RuntimeException("连接异常", e);
@@ -55,7 +56,7 @@ public class MwsApiClient {
         params.put("str", "hello");
         String result = null;
         try {
-            result = HttpRequest.post("http://localhost:8123/api/util/md5").addHeaders(getMap(str)).form(params).execute().body();
+            result = HttpRequest.post(REQUEST_BASE_URL + "/api/util/md5").addHeaders(getMap(str)).form(params).execute().body();
         } catch (Exception e) {
             throw new RuntimeException("连接异常", e);
         }
@@ -67,7 +68,7 @@ public class MwsApiClient {
         String str = JSONUtil.toJsonStr(form);
         String result = null;
         try {
-            result = HttpRequest.post("http://localhost:8123/api/util/md5WithSalt").addHeaders(getMap(str)).body(str).execute().body();
+            result = HttpRequest.post(REQUEST_BASE_URL + "/api/util/md5WithSalt").addHeaders(getMap(str)).body(str).execute().body();
         } catch (Exception e) {
             throw new RuntimeException("连接异常", e);
         }
