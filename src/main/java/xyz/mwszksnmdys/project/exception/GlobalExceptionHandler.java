@@ -1,16 +1,18 @@
 package xyz.mwszksnmdys.project.exception;
 
-import xyz.mwszksnmdys.project.common.BaseResponse;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.common.ResultUtils;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import xyz.mwszksnmdys.common.common.BaseResponse;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.common.ResultUtils;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 
 /**
  * 全局异常处理器
  *
- * @author yupi
+ * @author mws
  */
 @RestControllerAdvice
 @Slf4j

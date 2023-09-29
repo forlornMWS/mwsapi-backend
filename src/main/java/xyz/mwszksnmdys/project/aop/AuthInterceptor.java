@@ -2,8 +2,8 @@ package xyz.mwszksnmdys.project.aop;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import xyz.mwszksnmdys.project.annotation.AuthCheck;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.model.entity.User;
 import xyz.mwszksnmdys.project.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 /**
  * 权限校验 AOP
  *
- * @author yupi
+ * @author mws
  */
 @Aspect
 @Component

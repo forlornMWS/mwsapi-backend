@@ -6,11 +6,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
-import xyz.mwszksnmdys.project.common.BaseResponse;
-import xyz.mwszksnmdys.project.common.DeleteRequest;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.common.ResultUtils;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.BaseResponse;
+import xyz.mwszksnmdys.common.common.DeleteRequest;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.common.ResultUtils;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.model.dto.user.*;
 import xyz.mwszksnmdys.project.model.entity.User;
 import xyz.mwszksnmdys.project.model.vo.UserVO;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 /**
  * 用户接口
  *
- * @author yupi
+ * @author mws
  */
 @RestController
 @RequestMapping("/user")

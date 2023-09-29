@@ -1,6 +1,6 @@
 package xyz.mwszksnmdys.project.model.dto.post;
 
-import xyz.mwszksnmdys.project.common.PageRequest;
+import xyz.mwszksnmdys.common.common.PageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * 查询请求
  *
- * @author yupi
+ * @author mws
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

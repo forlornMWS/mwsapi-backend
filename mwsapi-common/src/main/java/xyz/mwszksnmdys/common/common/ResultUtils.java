@@ -1,9 +1,9 @@
-package xyz.mwszksnmdys.project.common;
+package xyz.mwszksnmdys.common.common;
 
 /**
  * 返回工具类
  *
- * @author yupi
+ * @author mws
  */
 public class ResultUtils {
 

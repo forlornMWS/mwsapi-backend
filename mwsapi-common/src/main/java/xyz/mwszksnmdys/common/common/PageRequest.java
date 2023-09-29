@@ -1,12 +1,12 @@
-package xyz.mwszksnmdys.project.common;
+package xyz.mwszksnmdys.common.common;
 
-import xyz.mwszksnmdys.project.constant.CommonConstant;
 import lombok.Data;
+import xyz.mwszksnmdys.common.constant.CommonConstant;
 
 /**
  * 分页请求
  *
- * @author yupi
+ * @author mws
  */
 @Data
 public class PageRequest {

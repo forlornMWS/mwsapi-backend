@@ -1,4 +1,4 @@
-package xyz.mwszksnmdys.project.common;
+package xyz.mwszksnmdys.common.common;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 删除请求
  *
- * @author yupi
+ * @author mws
  */
 @Data
 public class DeleteRequest implements Serializable {

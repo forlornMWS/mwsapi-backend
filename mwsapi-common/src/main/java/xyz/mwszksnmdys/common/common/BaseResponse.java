@@ -1,4 +1,4 @@
-package xyz.mwszksnmdys.project.common;
+package xyz.mwszksnmdys.common.common;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 通用返回类
  *
  * @param <T>
- * @author yupi
+ * @author mws
  */
 @Data
 public class BaseResponse<T> implements Serializable {

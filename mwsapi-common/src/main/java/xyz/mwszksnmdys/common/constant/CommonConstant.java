@@ -1,9 +1,9 @@
-package xyz.mwszksnmdys.project.constant;
+package xyz.mwszksnmdys.common.constant;
 
 /**
  * 通用常量
  *
- * @author yupi
+ * @author mws
  */
 public interface CommonConstant {
 

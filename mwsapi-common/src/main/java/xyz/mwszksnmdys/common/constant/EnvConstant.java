@@ -1,4 +1,4 @@
-package xyz.mwszksnmdys.project.constant;
+package xyz.mwszksnmdys.common.constant;
 
 public interface EnvConstant {
 

@@ -9,10 +9,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 import xyz.mwszksnmdys.apiclientsdk.client.MwsApiClient;
 import xyz.mwszksnmdys.apiclientsdk.model.Md5Form;
+import xyz.mwszksnmdys.common.common.*;
 import xyz.mwszksnmdys.project.annotation.AuthCheck;
-import xyz.mwszksnmdys.project.common.*;
-import xyz.mwszksnmdys.project.constant.CommonConstant;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.constant.CommonConstant;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.model.dto.interfaceinfo.InterfaceInfoAddRequest;
 import xyz.mwszksnmdys.project.model.dto.interfaceinfo.InterfaceInfoInvokeRequest;
 import xyz.mwszksnmdys.project.model.dto.interfaceinfo.InterfaceInfoQueryRequest;
@@ -255,11 +255,10 @@ public class InterfaceInfoController {
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
         MwsApiClient tempClient = new MwsApiClient(accessKey, secretKey);
-//        String result = tempClient.getUuid();
+        String result = tempClient.getUuid();
         String md5EncryptWithSalt = tempClient.md5EncryptWithSalt(bean);
-//        log.info(result);
-//        return ResultUtils.success("generated UUID: " + result + " md5withSalt: " + md5EncryptWithSalt);
-        return ResultUtils.success(md5EncryptWithSalt);
+        log.info(result);
+        return ResultUtils.success("generated UUID: " + result + " md5withSalt: " + md5EncryptWithSalt);
     }
 
     // endregion

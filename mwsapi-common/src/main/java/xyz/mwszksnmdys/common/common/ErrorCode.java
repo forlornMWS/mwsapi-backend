@@ -1,9 +1,9 @@
-package xyz.mwszksnmdys.project.common;
+package xyz.mwszksnmdys.common.common;
 
 /**
  * 错误码
  *
- * @author yupi
+ * @author mws
  */
 public enum ErrorCode {
 

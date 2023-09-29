@@ -2,13 +2,17 @@ package xyz.mwszksnmdys.apiclientsdk.client;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.http.HttpRequest;
+import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 import xyz.mwszksnmdys.apiclientsdk.model.Md5Form;
 import xyz.mwszksnmdys.apiclientsdk.utils.SignUtil;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 
 import java.util.HashMap;
+
+import static xyz.mwszksnmdys.common.common.ErrorCode.OPERATION_ERROR;
 
 @Slf4j
 public class MwsApiClient {
@@ -40,15 +44,18 @@ public class MwsApiClient {
 
 
     public String getUuid() {
-        String result = null;
+        HttpResponse response;
         try {
-            result = HttpRequest.get(REQUEST_BASE_URL + "/api/util/uuid").addHeaders(getMap(""))
-                    .execute().body();
+            response = HttpRequest.get(REQUEST_BASE_URL + "/api/util/uuid").addHeaders(getMap(""))
+                    .execute();
         } catch (Exception e) {
             throw new RuntimeException("连接异常", e);
         }
-        log.info(result);
-        return result;
+        log.info(response.toString());
+        if (!response.isOk()) {
+            throw new BusinessException(OPERATION_ERROR.getCode(), OPERATION_ERROR.getMessage() + response.body());
+        }
+        return response.body();
     }
 
     public String md5Encrypt(String str) {

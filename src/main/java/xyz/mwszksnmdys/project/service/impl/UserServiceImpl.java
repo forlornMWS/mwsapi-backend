@@ -3,8 +3,8 @@ package xyz.mwszksnmdys.project.service.impl;
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.mapper.UserMapper;
 import xyz.mwszksnmdys.project.model.entity.User;
 import xyz.mwszksnmdys.project.service.UserService;
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
-import xyz.mwszksnmdys.project.constant.UserConstant;
+import xyz.mwszksnmdys.common.constant.UserConstant;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 用户服务实现类
  *
- * @author yupi
+ * @author mws
  */
 @Service
 @Slf4j

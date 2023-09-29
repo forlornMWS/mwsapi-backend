@@ -1,8 +1,8 @@
 package xyz.mwszksnmdys.project.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.mapper.PostMapper;
 import xyz.mwszksnmdys.project.model.entity.Post;
 import xyz.mwszksnmdys.project.model.enums.PostGenderEnum;

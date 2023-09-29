@@ -6,8 +6,8 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.BeanUtils;
 import xyz.mwszksnmdys.common.domain.UserDO;
 import xyz.mwszksnmdys.common.service.InnerUserService;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.mapper.UserMapper;
 import xyz.mwszksnmdys.project.model.entity.User;
 

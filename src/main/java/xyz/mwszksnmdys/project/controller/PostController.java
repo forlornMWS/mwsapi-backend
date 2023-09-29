@@ -7,12 +7,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 import xyz.mwszksnmdys.project.annotation.AuthCheck;
-import xyz.mwszksnmdys.project.common.BaseResponse;
-import xyz.mwszksnmdys.project.common.DeleteRequest;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.common.ResultUtils;
-import xyz.mwszksnmdys.project.constant.CommonConstant;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.BaseResponse;
+import xyz.mwszksnmdys.common.common.DeleteRequest;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.common.ResultUtils;
+import xyz.mwszksnmdys.common.constant.CommonConstant;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.model.dto.post.PostAddRequest;
 import xyz.mwszksnmdys.project.model.dto.post.PostQueryRequest;
 import xyz.mwszksnmdys.project.model.dto.post.PostUpdateRequest;
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * 帖子接口
  *
- * @author yupi
+ * @author mws
  */
 @RestController
 @RequestMapping("/post")

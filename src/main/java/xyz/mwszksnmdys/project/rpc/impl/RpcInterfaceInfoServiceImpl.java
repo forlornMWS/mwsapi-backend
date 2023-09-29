@@ -6,8 +6,8 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.BeanUtils;
 import xyz.mwszksnmdys.common.domain.InterfaceInfoDO;
 import xyz.mwszksnmdys.common.service.InnerInterfaceInfoService;
-import xyz.mwszksnmdys.project.common.ErrorCode;
-import xyz.mwszksnmdys.project.exception.BusinessException;
+import xyz.mwszksnmdys.common.common.ErrorCode;
+import xyz.mwszksnmdys.common.exception.BusinessException;
 import xyz.mwszksnmdys.project.mapper.InterfaceInfoMapper;
 import xyz.mwszksnmdys.project.model.entity.InterfaceInfo;
 

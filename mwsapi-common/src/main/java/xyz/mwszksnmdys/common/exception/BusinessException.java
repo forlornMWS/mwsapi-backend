@@ -1,11 +1,12 @@
-package xyz.mwszksnmdys.project.exception;
+package xyz.mwszksnmdys.common.exception;
 
-import xyz.mwszksnmdys.project.common.ErrorCode;
+
+import xyz.mwszksnmdys.common.common.ErrorCode;
 
 /**
  * 自定义异常类
  *
- * @author yupi
+ * @author mws
  */
 public class BusinessException extends RuntimeException {
 

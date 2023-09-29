@@ -2,14 +2,14 @@ package xyz.mwszksnmdys.project.model.dto.interfaceinfo;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import xyz.mwszksnmdys.project.common.PageRequest;
+import xyz.mwszksnmdys.common.common.PageRequest;
 
 import java.io.Serializable;
 
 /**
  * 查询请求
  *
- * @author yupi
+ * @author mws
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
