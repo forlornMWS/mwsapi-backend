@@ -25,6 +25,9 @@ import xyz.mwszksnmdys.project.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -195,7 +198,9 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 判断该接口是否可以调用
-        String s = mwsApiClient.md5EncryptWithSalt(new Md5Form("salt", "hello"));
+        Md5Form md5Form = new Md5Form("salt", "hello");
+        String str = JSONUtil.toJsonStr(md5Form);
+        String s = mwsApiClient.md5EncryptWithSalt(str);
         if (StringUtils.isBlank(s)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
         }
@@ -243,7 +248,6 @@ public class InterfaceInfoController {
         long id = interfaceInfoInvokeRequest.getId();
         String userRequestParams = interfaceInfoInvokeRequest.getUserRequestParams();
         log.info("用户请求参数:{}", userRequestParams);
-        Md5Form bean = JSONUtil.toBean(userRequestParams, Md5Form.class);
         InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
         if (oldInterfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
@@ -254,11 +258,16 @@ public class InterfaceInfoController {
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        MwsApiClient tempClient = new MwsApiClient(accessKey, secretKey);
-        String result = tempClient.getUuid();
-        String md5EncryptWithSalt = tempClient.md5EncryptWithSalt(bean);
-        log.info(result);
-        return ResultUtils.success("generated UUID: " + result + " md5withSalt: " + md5EncryptWithSalt);
+        Object invokeResult = null;
+        try {
+            Constructor<MwsApiClient> constructor = MwsApiClient.class.getConstructor(String.class, String.class);
+            MwsApiClient client = constructor.newInstance(accessKey, secretKey);
+            Method method = MwsApiClient.class.getMethod(oldInterfaceInfo.getName(), String.class);
+            invokeResult = method.invoke(client, userRequestParams);
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口调用失败" + e.getMessage());
+        }
+        return ResultUtils.success(invokeResult);
     }
 
     // endregion

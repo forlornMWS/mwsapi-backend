@@ -17,7 +17,6 @@ class MwsapiInterfaceApplicationTests {
     void contextLoads() {
 //        System.out.println(mwsApiClient.getUuid());
 //        System.out.println(mwsApiClient.md5Encrypt("hello"));
-        System.out.println(mwsApiClient.md5EncryptWithSalt(new Md5Form("mws", "testtest")));
     }
 
 }
