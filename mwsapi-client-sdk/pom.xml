@@ -15,7 +15,7 @@
     <artifactId>mwsapi-client-sdk</artifactId>
     <version>0.0.1</version>
     <name>mwsapi-client-sdk</name>
-    <description>mwsapi-client-sdk</description>
+    <description>提供接口sdk模块</description>
     <properties>
         <java.version>8</java.version>
     </properties>

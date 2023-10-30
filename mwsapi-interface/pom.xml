@@ -15,7 +15,7 @@
     <artifactId>mwsapi-interface</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mwsapi-interface</name>
-    <description>mwsapi-interface</description>
+    <description>模拟接口服务</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
